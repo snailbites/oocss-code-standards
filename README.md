@@ -132,13 +132,13 @@ Keep nesting to 3 levels deep.
 }
 ```
 
-Declare `@extend` followed by `@include` statements first in a declaration block. (Borrowed from [Idiomatic CSS] (https://github.com/necolas/idiomatic-css#4-format))
+Declare extendable classes first in a declaration block. (Borrowed from [Idiomatic CSS] (https://github.com/necolas/idiomatic-css#4-format))
 
 ```scss
 /* Good */
 .stubbornella {
-    @extend .company;
-    @include font-size(14);
+    .transition(background, .3s, ease);
+    .text-left;
     color: #555;
     font-size: 11px;
 }
@@ -146,9 +146,9 @@ Declare `@extend` followed by `@include` statements first in a declaration block
 /* Bad */
 .stubbornella {
     color: #555;
-    @extend .company;
+    .transition(background, .3s, ease);
     font-size: 11px;
-    @include font-size(14);
+    .text-left;
 }
 ```
 
@@ -193,7 +193,7 @@ background: linear-gradient(...); /* W3C */
 Suffix fallback with “Old browsers” and standard property with “W3C”. Add a plus or minus to indicate that a property applies to all previous browsers by the same vendor or all future browsers by the same vendor.
 Using !important
 
-Do not use !important on CSS properties. The only time this is allowed is in a global style (provided by Core team).
+Do not use !important on CSS properties. They will ruin specificity. The only time this is allowed is in a global style (provided by Core team).
 
 ```css
 /* Good */
@@ -395,22 +395,6 @@ span {
 }
 ```
 
-### JavaScript Dependence
-
-All rules should be coded to expect JavaScript to be enabled. Rules that apply when JavaScript is disabled should be preceded by the noJS class.
-
-```css
-/* Good */
-.noJS .calloutContent {
-   display: block;
-}
-
-/* Bad - don't use .js */
-.js .calloutContent{
-   display: none;
-}
-```
-
 ### :hover and :focus
 
 If :hover pseudo class is styled, :focus should also be styled for accessibility. Focus styles should never be removed.
@@ -430,7 +414,7 @@ a:hover {
 
 ### Avoid using IDs
 
-Selectors should never use HTML element IDs. Always use classes for applying styles to specific areas of a page.
+Selectors should never use HTML element IDs. They are difficult to override with classes and will ruin our specificity. Always use classes for applying styles to specific areas of a page.
 
 ```css
 /* Good */
