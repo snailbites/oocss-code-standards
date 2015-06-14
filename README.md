@@ -92,26 +92,17 @@ Each property must be on its own line and indented one level. There should be no
 
 ### Using CSS Preprocessors
 
-Keep nesting to 3 levels deep. 
+Keep nesting to 1 level deep. 
 
 ```scss
 /* Good */
 .stubbornella {
     .inner {
       ...
-
-        .title {
-         ....
-
-            .subtxt {
-            ...
-
-            }
-        }
     }
 }
 
-/* Bad - more than 3 levels of nesting */
+/* Bad - more than 1 level of nesting */
 .stubbornella {
     .inner {
       ...
