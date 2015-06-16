@@ -497,3 +497,80 @@ Also, add file-level comments at the top of every CSS file, describing the file 
 * @requires     helpers.css (tied to the @name of another file)
 */
 ```
+
+[ ] THEMING (see below)
+how can we isolate bootstrap to one source of truth
+
+[ ] scales
+fonts
+colors
+zindex
+[ ] optimize images and icon fonts
+[ ] style guide / css rules
+[ ] create sprite sheet generator
+
+
+
+
+HOW DO WE HANDLE NESTING?
+=-=-=-=-
+<block>
+</block>
+.block {}
+
+<block>
+    <p>
+</block>
+.block {}
+.block < p {}
+
+<block>
+    <child>
+        <h1>
+        <p>
+    </child>
+</block>
+.block {}
+
+.block-child {}
+.block-child > h1 {}
+.block-child > p {}
+
+<block>
+    <child>
+        <grandchild>
+            <great-grandchild>
+                <h1>
+                <p>
+            </great-grandchild>
+            <h2>
+            <p>
+            <great-grandchild>
+    <h1>
+    <p>
+            </great-grandchild>
+        </grandchild>
+    </child>
+    <child>
+    </child>
+</block>
+
+.block {}
+.block-h1 {}
+.block-p {}
+
+.block-grandChild {}
+.block-greatGrandchild {}
+
+// goes into theming folder
+.something-h1 {}
+.something-h2 {}
+
+
+
+THEMING
+=-=-=-=-
+can we isolate our variables to one source of truth?
+can we use grunt to separate our less files so we don’t have to?
+
+@chil
